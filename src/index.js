@@ -5,9 +5,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 
 import App from './components/app';
 import reducers from './reducers';
+import Async from './middlewares/async';
 
 const createStoreWithMiddleware = compose(
-  applyMiddleware(),
+  applyMiddleware(Async),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
 
